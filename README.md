@@ -14,3 +14,8 @@ In this project, we will learn the basic of react through the construction of a 
     - a submit button
     - a list of todos (just add 2-3 todos)
     - each todo has a checkbox next to it
+
+3. Set usestates
+
+    - for checkbox
+    
