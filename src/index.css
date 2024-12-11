@@ -144,3 +144,22 @@ button:hover {
     background-color: rgba(124, 19, 173, 0.1);
   }
 }
+
+@media (max-width: 800px) {
+  body {
+    margin: 0;
+    padding: 0;
+    display: block;
+
+    main {
+      height: 100vh;
+      width: 100%;
+      background-image: url('./background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+
+
