@@ -36,7 +36,7 @@ const App = () => {
       done: "Not Done",
     };
 
-    const updatedTodos = todos.concat(newTodo); // Ajoute sans spread
+    const updatedTodos = todos.concat(newTodo);
     setTodos(updatedTodos);
     localStorage.setItem("todolist", JSON.stringify(updatedTodos));
     setCounter(counter + 1);

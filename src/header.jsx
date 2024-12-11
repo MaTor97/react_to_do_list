@@ -4,8 +4,8 @@ const Header = ({ addTodo }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleAdd = () => {
-    addTodo(inputValue); // Ajoute la tâche via le parent
-    setInputValue(""); // Vide l'input
+    addTodo(inputValue); 
+    setInputValue(""); 
   };
 
   return (

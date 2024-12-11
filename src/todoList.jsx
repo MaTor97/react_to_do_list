@@ -1,8 +1,7 @@
 const TodoList = ({ todos, toggleDone, deleteTodo }) => {
   return (
-    <div>
+    <div id='todos'>
       <h2>Todos</h2>
-      <ul>
         {todos.map((task) => (
           <li key={task.index}>
             <input
@@ -12,12 +11,11 @@ const TodoList = ({ todos, toggleDone, deleteTodo }) => {
               onChange={() => toggleDone(task.index)}
             />
             <label htmlFor={`todo-${task.index}`}>
-              {task.text}: <em>({task.done === "Done" ? "Done" : "To Do"})</em>
+              {task.text}
             </label>
             <button onClick={() => deleteTodo(task.index)}>Delete</button>
           </li>
         ))}
-      </ul>
     </div>
   );
 };
