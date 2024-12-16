@@ -6,8 +6,8 @@ import Header from './header.jsx'
 
 
 const App = () => {
-  const [todos, setTodos] = useState([]); // Liste des tâches
-  const [counter, setCounter] = useState(0); // Compteur pour assigner des indices uniques
+  const [todos, setTodos] = useState([]); 
+  const [counter, setCounter] = useState(0); 
 
   // Charger les tâches initiales depuis le localStorage
   useEffect(() => {
@@ -27,19 +27,22 @@ const App = () => {
   }, []);
 
   // Ajouter une tâche
-  const addTodo = (text) => {
-    if (!text.trim()) return; // Ignore les entrées vides
-
+  const addTodo = ({ text, dateTime }) => {
+    if (!text.trim()) return; // Ignore les tâches sans texte
+  
+    // Créer un identifiant unique basé sur la date et l'heure
+    const timestamp = new Date(dateTime).getTime(); 
+  
     const newTodo = {
-      index: counter + 1,
-      text: text,
+      id: timestamp, 
+      text: text, 
+      dateTime: dateTime, 
       done: "Not Done",
     };
-
+  
     const updatedTodos = todos.concat(newTodo);
     setTodos(updatedTodos);
     localStorage.setItem("todolist", JSON.stringify(updatedTodos));
-    setCounter(counter + 1);
   };
 
   // Mettre à jour le statut d'une tâche
@@ -61,16 +64,12 @@ const App = () => {
   };
 
   // Supprimer une tâche
-  const deleteTodo = (index) => {
-    const updatedTodos = [];
-    for (let task of todos) {
-      if (task.index !== index) {
-        updatedTodos.push(task);
-      }
-    }
+  const deleteTodo = (id) => {
+    const updatedTodos = todos.filter((task) => task.id !== id); 
     setTodos(updatedTodos);
     localStorage.setItem("todolist", JSON.stringify(updatedTodos));
   };
+  
 
   return (
     <main>

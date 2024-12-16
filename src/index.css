@@ -95,6 +95,15 @@ button:hover {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     font-family: 'Georgia', serif;
+
+    label {
+      width: 80%;
+      justify-content: space-between;
+
+      input {
+        width: 190px;
+      }
+    }
   }
 
   input[type="checkbox"] {
@@ -134,14 +143,6 @@ button:hover {
     content: '✓';
     color: white;
     font-size: 16px;
-  }
-
-  input[type="checkbox"]:focus + label:before {
-    box-shadow: 0 0 0 2px rgba(124, 19, 173, 0.5);
-  }
-
-  input[type="checkbox"]:hover + label:before {
-    background-color: rgba(124, 19, 173, 0.1);
   }
 }
 
