@@ -46,22 +46,18 @@ const App = () => {
   };
 
   // Mettre à jour le statut d'une tâche
-  const toggleDone = (index) => {
-    const updatedTodos = [];
-    for (let task of todos) {
-      if (task.index === index) {
-        updatedTodos.push({
-          index: task.index,
-          text: task.text,
-          done: task.done === "Not Done" ? "Done" : "Not Done",
-        });
-      } else {
-        updatedTodos.push(task);
+  const toggleDone = (id) => {
+    const updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        return { ...todo, done: todo.done === "Done" ? "Not Done" : "Done" }; // Change "done" en fonction de l'état actuel
       }
-    }
-    setTodos(updatedTodos);
-    localStorage.setItem("todolist", JSON.stringify(updatedTodos));
+      return todo;
+    });
+  
+    setTodos(updatedTodos);  // Met à jour l'état des todos
+    localStorage.setItem("todolist", JSON.stringify(updatedTodos)); // Enregistre dans le localStorage
   };
+  
 
   // Supprimer une tâche
   const deleteTodo = (id) => {
@@ -73,7 +69,7 @@ const App = () => {
 
   return (
     <main>
-      <h1>Todo App</h1>
+      <h1>Task Manager</h1>
       <Header addTodo={addTodo} />
       <TodoList todos={todos} toggleDone={toggleDone} deleteTodo={deleteTodo} />
     </main>
